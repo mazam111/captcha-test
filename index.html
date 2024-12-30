@@ -3,19 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloudflare CAPTCHA Test</title>
+    <title>Just a moment...</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #222;
+            color: #d9d9d9;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+        }
+
+        .main-content {
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .subheading {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .cf-turnstile {
+            margin: 20px auto;
+        }
+
+        .footer-message {
+            margin-top: 20px;
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0051c3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #003681;
+        }
+    </style>
+    <!-- Cloudflare Turnstile API -->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Cloudflare CAPTCHA Test</h1>
-    <form id="captcha-form" action="#" method="POST">
-        <div
-            class="cf-turnstile"
-            data-sitekey="0x4AAAAAAA4Fa3RvdRT_Wjop">
-        </div>
-        <button type="submit">Submit</button>
-    </form>
-    <script src="script.js"></script>
+    <div class="main-content">
+        <!-- Heading -->
+        <h1>www.shi.com</h1>
+        <p class="subheading">Verify you are human by completing the action below.</p>
+
+        <!-- Cloudflare CAPTCHA -->
+        <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY"></div>
+
+        <!-- Footer Message -->
+        <p class="footer-message">
+            www.shi.com needs to review the security of your connection before proceeding.
+        </p>
+    </div>
 </body>
 </html>
