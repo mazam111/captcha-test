@@ -3,75 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Just a moment...</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="robots" content="noindex,nofollow">
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            min-height: 100vh;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #313131;
-            margin: 0;
-            padding: 0;
-        }
-        .main-wrapper {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            flex: 1;
-            text-align: center;
-            padding: 20px;
-        }
-        .main-content {
-            max-width: 600px;
-            width: 100%;
-            background: white;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            border-radius: 8px;
-        }
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #0051c3;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        button:hover {
-            background-color: #003681;
-        }
-    </style>
-    <!-- Include Cloudflare Turnstile API -->
+    <title>Cloudflare CAPTCHA Test</title>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="main-wrapper">
-        <div class="main-content">
-            <h1>Verify you are human</h1>
-            <p>Please complete the CAPTCHA below to proceed.</p>
-            <!-- Cloudflare CAPTCHA Widget -->
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAAA4Fa3RvdRT_Wjop"></div>
-            <!-- Submit Button -->
-            <form id="captcha-form" method="POST">
-                <button type="submit">Submit</button>
-            </form>
+    <h1>Cloudflare CAPTCHA Test</h1>
+    <form id="captcha-form" action="#" method="POST">
+        <div
+            class="cf-turnstile"
+            data-sitekey="0x4AAAAAAA4Fa3RvdRT_Wjop">
         </div>
-    </div>
+        <button type="submit">Submit</button>
+    </form>
+    <script src="script.js"></script>
 </body>
 </html>
