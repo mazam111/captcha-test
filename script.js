@@ -1,19 +1,29 @@
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const form = document.getElementById("captcha-form");
+// Wait for the DOM to load before running the script
+document.addEventListener("DOMContentLoaded", () => {
+    // Select the form element
+    const form = document.getElementById("captcha-form");
 
-        form.addEventListener("submit", (event) => {
-            event.preventDefault(); // Prevent default form submission
+    // Handle form submission
+    form.addEventListener("submit", (event) => {
+        // Prevent default form submission
+        event.preventDefault();
 
-            // Capture CAPTCHA response
-            const captchaResponse = document.querySelector('.cf-turnstile').getAttribute('data-response');
+        // Get the CAPTCHA response token from Turnstile
+        const turnstileResponse = document.querySelector('.cf-turnstile').getAttribute('data-response');
 
-            if (captchaResponse) {
-                console.log("CAPTCHA Response Token:", captchaResponse);
-                alert("CAPTCHA successfully completed!");
-            } else {
-                alert("Please complete the CAPTCHA!");
-            }
-        });
+        if (turnstileResponse) {
+            // Log the response token (for testing purposes)
+            console.log("CAPTCHA Response Token:", turnstileResponse);
+
+            // Display a success message
+            alert("CAPTCHA completed successfully!");
+
+            // Optionally, send the token to your server for verification
+            // (You'll need server-side code to handle this)
+        } else {
+            // Display an error message
+            alert("Please complete the CAPTCHA before submitting!");
+        }
     });
-</script>
+});
+
