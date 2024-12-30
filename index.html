@@ -45,19 +45,11 @@
             font-weight: 300;
         }
 
-        button {
+        #verification-success {
+            display: none; /* Initially hidden */
+            font-size: 1.2rem;
+            color: #4caf50; /* Success green color */
             margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #0051c3;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        button:hover {
-            background-color: #003681;
         }
     </style>
     <!-- Cloudflare Turnstile API -->
@@ -70,12 +62,30 @@
         <p class="subheading">Verify you are human by completing the action below.</p>
 
         <!-- Cloudflare CAPTCHA -->
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAAA4Fa3RvdRT_Wjop"></div>
+        <div id="captcha-container">
+            <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY" data-callback="onCaptchaSuccess"></div>
+        </div>
+
+        <!-- Success Message -->
+        <p id="verification-success">Verification Successful</p>
 
         <!-- Footer Message -->
         <p class="footer-message">
             www.shi.com needs to review the security of your connection before proceeding.
         </p>
     </div>
+
+    <script>
+        // Callback function when CAPTCHA is successfully completed
+        function onCaptchaSuccess() {
+            // Hide the CAPTCHA container
+            const captchaContainer = document.getElementById('captcha-container');
+            captchaContainer.style.display = 'none';
+
+            // Show the success message
+            const successMessage = document.getElementById('verification-success');
+            successMessage.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
